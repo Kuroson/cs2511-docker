@@ -21,5 +21,4 @@ RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.
 # Set the working directory
 WORKDIR /gradle
 
-# Default command, this will display Gradle version
-CMD ["/bin/bash"]
+CMD ["tail", "-f", "/dev/null"]
