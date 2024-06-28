@@ -1,4 +1,4 @@
-name: cs2511-gradle-8.5 CI
+name: cs2511-gradle-8.8 CI
 
 on:
   push:
