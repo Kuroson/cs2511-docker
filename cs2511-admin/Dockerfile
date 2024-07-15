@@ -1,6 +1,6 @@
-FROM python:3.9-alpine
+FROM python:3.11-alpine
 
-RUN apk add bash git
+RUN apk add bash git curl wget
 RUN apk add -U tzdata libxslt libxml2 libjpeg zlib libffi freetype ttf-dejavu libpq
 RUN cp /usr/share/zoneinfo/Australia/Sydney /etc/localtime
 RUN apk del tzdata
