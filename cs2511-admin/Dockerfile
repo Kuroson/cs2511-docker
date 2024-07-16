@@ -16,6 +16,10 @@ ARG NODE_VERSION=18.19.0
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 RUN source ~/.nvm/nvm.sh && nvm install ${NODE_VERSION} && nvm use ${NODE_VERSION} && nvm alias default ${NODE_VERSION}
 
+# Install package managers
+RUN source ~/.nvm/nvm.sh && npm install -g yarn
+RUN source ~/.nvm/nvm.sh && npm install -g pnpm
+
 # Java
 RUN apt install openjdk-17-jdk -y
 ARG GRADLE_VERSION=8.8
