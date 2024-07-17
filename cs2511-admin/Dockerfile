@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM node:18.20-bookworm-slim
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
@@ -10,15 +10,6 @@ RUN apt install wget curl git unzip -y
 RUN apt install python3.11 python3-pip -y
 RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/etc/poetry python3 -
 ENV PATH="$PATH:/etc/poetry/bin"
-
-# NodeJS
-ARG NODE_VERSION=18.19.0
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-RUN source ~/.nvm/nvm.sh && nvm install ${NODE_VERSION} && nvm use ${NODE_VERSION} && nvm alias default ${NODE_VERSION}
-
-# Install package managers
-RUN source ~/.nvm/nvm.sh && npm install -g yarn
-RUN source ~/.nvm/nvm.sh && npm install -g pnpm
 
 # Java
 RUN apt install openjdk-17-jdk -y
