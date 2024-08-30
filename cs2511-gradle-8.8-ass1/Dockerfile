@@ -25,7 +25,6 @@ COPY assignment-i/ /gradle/assignment-i/
 
 WORKDIR /gradle/assignment-i
 RUN gradle checkCompile
-RUN gradle showMeCache
 
 # Start with a base Alpine Linux image
 FROM alpine:3.18 AS base
