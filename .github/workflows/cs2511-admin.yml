@@ -5,6 +5,7 @@ on:
     branches: [master]
     paths:
       - "cs2511-admin/Dockerfile"
+      - ".github/workflows/cs2511-admin.yml"
   workflow_dispatch:
 
 jobs:

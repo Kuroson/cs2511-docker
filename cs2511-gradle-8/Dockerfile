@@ -5,9 +5,9 @@ FROM alpine:3.18
 ARG GRADLE_VERSION=8.4
 
 # Set some environment variables
-ENV GRADLE_HOME /opt/gradle
-ENV GRADLE_USER_HOME /gradle
-ENV PATH $GRADLE_HOME/bin:$PATH
+ENV GRADLE_HOME=/opt/gradle
+ENV GRADLE_USER_HOME=/gradle
+ENV PATH=$GRADLE_HOME/bin:$PATH
 
 # Install OpenJDK 17 and other required dependencies
 RUN apk --no-cache add openjdk17 wget unzip

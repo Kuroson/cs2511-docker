@@ -5,11 +5,12 @@ on:
     branches: [master]
     paths:
       - "cs2511-gradle-8/Dockerfile"
+      - ".github/workflows/cs2511-gradle-8.yml"
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build and publish cs2511-gradle Docker Image
+    name: Build and publish cs2511-gradle-8 Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,9 +20,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Extract short SHA
+        id: vars
+        run: echo "SHA_SHORT=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           push: true
           context: ./cs2511-gradle-8
-          tags: cs2511docker/cs2511-gradle-8:latest
+          tags: |
+            cs2511docker/cs2511-gradle-8:latest
+            cs2511docker/cs2511-gradle-8:${{ env.SHA_SHORT }}
