@@ -6,6 +6,7 @@ on:
     paths:
       - "cs2511-gradle-8.8-ass1/Dockerfile"
       - ".github/workflows/cs2511-gradle-8.8-ass1.yml"
+      - ".gitmodules"
   workflow_dispatch:
 
 jobs:
