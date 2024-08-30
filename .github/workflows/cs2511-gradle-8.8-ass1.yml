@@ -35,7 +35,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          push: false
+          push: true
           context: ./cs2511-gradle-8.8-ass1
           tags: |
             cs2511docker/cs2511-gradle-8.8-ass1:latest
