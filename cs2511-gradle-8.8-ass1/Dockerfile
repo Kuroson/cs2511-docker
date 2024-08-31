@@ -24,8 +24,9 @@ WORKDIR /gradle
 COPY assignment-i/ /gradle/assignment-i/
 
 WORKDIR /gradle/assignment-i
-RUN gradle checkCompile
+RUN gradle compile
 RUN gradle lint
+RUN gradle test; exit 0
 
 # Start with a base Alpine Linux image
 FROM alpine:3.18 AS base
