@@ -1,4 +1,4 @@
-FROM node:18.20-bookworm-slim
+FROM node:20.18-bookworm-slim
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
