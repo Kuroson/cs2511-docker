@@ -49,7 +49,7 @@ RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.
     rm /tmp/gradle-${GRADLE_VERSION}-bin.zip
 
 # Download the assignment file and place it in /data
-RUN wget https://cgi.cse.unsw.edu.au/~cs2511/dryrun_ass1/assignment-i-tests.tar -P /data
+RUN wget https://cgi.cse.unsw.edu.au/~cs2511/static/dryrun/assignment-i-tests.tar -P /data
 
 # Install other tools
 RUN apk --no-cache add git bash curl
