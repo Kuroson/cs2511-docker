@@ -3,4 +3,4 @@ path = cs2511-gradle-8.8-ass1/assignment-i
 url = git@nw-syd-gitlab.cseunsw.tech:COMP2511/25T1/STAFF/repos/assignment-i.git
 [submodule "cs2511-gradle-8.8-ass2/assignment-ii"]
 path = cs2511-gradle-8.8-ass2/assignment-ii
-url = git@nw-syd-gitlab.cseunsw.tech:COMP2511/24T3/STAFF/repos/assignment-ii.git
+url = git@nw-syd-gitlab.cseunsw.tech:COMP2511/25T1/STAFF/repos/assignment-ii.git
