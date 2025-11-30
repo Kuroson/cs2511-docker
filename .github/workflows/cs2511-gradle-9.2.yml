@@ -1,0 +1,33 @@
+name: cs2511-gradle-9.2 CI
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "cs2511-gradle-9.2/Dockerfile"
+      - ".github/workflows/cs2511-gradle-9.2.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and publish cs2511-gradle-9.2 Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Extract short SHA
+        id: vars
+        run: echo "SHA_SHORT=${GITHUB_SHA::7}" >> $GITHUB_ENV
+      - name: Build and push Docker image
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          push: true
+          context: ./cs2511-gradle-9.2
+          tags: |
+            cs2511docker/cs2511-gradle-9.2:latest
+            cs2511docker/cs2511-gradle-9.2:${{ env.SHA_SHORT }}
