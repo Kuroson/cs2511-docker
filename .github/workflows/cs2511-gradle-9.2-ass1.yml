@@ -1,16 +1,16 @@
-name: cs2511-gradle-9.2 CI
+name: cs2511-gradle-9.2-ass1 CI
 
 on:
   push:
     branches: [master]
     paths:
-      - "cs2511-gradle-9.2/Dockerfile"
-      - ".github/workflows/cs2511-gradle-9.2.yml"
+      - 'cs2511-gradle-9.2-ass1/Dockerfile'
+      - '.github/workflows/cs2511-gradle-9.2-ass1.yml'
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build and publish cs2511-gradle-9.2 Docker Image
+    name: Build and publish cs2511-gradle-9.2-ass1 Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           push: true
-          context: ./cs2511-gradle-9.2
+          context: ./cs2511-gradle-9.2-ass1
           tags: |
-            cs2511docker/cs2511-gradle-9.2:latest
-            cs2511docker/cs2511-gradle-9.2:${{ env.SHA_SHORT }}
+            cs2511docker/cs2511-gradle-9.2-ass1:latest
+            cs2511docker/cs2511-gradle-9.2-ass1:${{ env.SHA_SHORT }}
