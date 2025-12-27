@@ -17,7 +17,8 @@ RUN npm --version
 
 RUN npm install -g corepack@latest
 RUN corepack enable
-RUN npx playwright@1.41.2 install --with-deps chromium
+RUN npm install -g playwright@1.41.2
+RUN playwright install --with-deps chromium
 
 WORKDIR /app
 
