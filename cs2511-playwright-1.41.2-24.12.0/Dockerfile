@@ -17,6 +17,7 @@ RUN npm --version
 
 RUN npm install -g corepack@latest
 RUN corepack enable
+RUN npx playwright install --with-deps
 
 WORKDIR /app
 
