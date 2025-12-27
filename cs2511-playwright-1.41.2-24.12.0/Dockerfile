@@ -20,6 +20,7 @@ RUN corepack enable
 
 RUN mkdir -p /root/.cache/ms-playwright
 RUN cp -rv /ms-playwright /root/.cache/
+RUN rm -rfv /ms-playwright || true
 
 WORKDIR /app
 
