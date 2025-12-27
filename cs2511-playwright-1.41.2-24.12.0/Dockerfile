@@ -17,8 +17,9 @@ RUN npm --version
 
 RUN npm install -g corepack@latest
 RUN corepack enable
-RUN npm install -g playwright@1.41.2
-RUN playwright install --with-deps chromium
+
+RUN mkdir -p /root/.cache/ms-playwright
+RUN cp -rv /ms-playwright /root/.cache/
 
 WORKDIR /app
 
