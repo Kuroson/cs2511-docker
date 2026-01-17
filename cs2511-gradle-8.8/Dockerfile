@@ -19,7 +19,7 @@ RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.
     rm /tmp/gradle-${GRADLE_VERSION}-bin.zip
 
 # Install other tools
-RUN apk --no-cache add git bash curl
+RUN apk --no-cache add git bash curl tar
 
 # Set the working directory
 WORKDIR /gradle
