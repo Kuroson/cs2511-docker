@@ -20,8 +20,7 @@ ENV GRADLE_OPTS="-Dorg.gradle.console=plain"
 # Install OpenJDK 21 and other required dependencies
 RUN apk update
 RUN apk upgrade
-RUN apk --no-cache add openjdk21 wget unzip
-RUN apk --no-cache add git bash curl
+RUN apk --no-cache add openjdk21 wget unzip git bash curl openssh-client
 
 # Download and unpack Gradle
 RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -P /tmp
