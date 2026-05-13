@@ -9,7 +9,7 @@ RUN apt upgrade -y
 
 RUN npm install -g corepack@latest
 RUN corepack enable
-RUN pnpm dlx playwright@1.58.2 install --with-deps chromium
+RUN pnpm dlx playwright@1.58.2 install --with-deps chromium firefox
 
 # RUN mkdir -p /root/.cache/ms-playwright
 # RUN cp -rv /ms-playwright /root/.cache/
