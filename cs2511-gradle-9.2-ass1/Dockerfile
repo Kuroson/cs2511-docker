@@ -1,6 +1,7 @@
 # Start with a base Alpine Linux image
 FROM alpine:3.22
 
+
 # Set the Gradle version
 ARG GRADLE_VERSION=9.2.0
 
