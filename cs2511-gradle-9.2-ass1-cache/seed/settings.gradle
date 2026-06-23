@@ -1,2 +1,9 @@
+plugins {
+    // Apply the foojay-resolver plugin to allow automatic download of JDKs.
+    // Every assignment/lab repo applies this in its settings.gradle, so it must
+    // be warmed into the cache or offline builds fail at settings evaluation.
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+
 rootProject.name = 'gradle-seed'
 include 'app'
