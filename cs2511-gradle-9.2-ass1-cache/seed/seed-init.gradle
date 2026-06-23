@@ -1,0 +1,18 @@
+// Init script used only when warming the Gradle cache for the Docker image.
+// It forces resolution of every resolvable configuration in every project so
+// that the entire dependency graph -- project deps + transitives, the plugin
+// classpath (e.g. jacocolog -> commons-lang3) and the Checkstyle/JaCoCo tool
+// jars -- is downloaded into GRADLE_USER_HOME.
+allprojects {
+    tasks.register('resolveAllDependencies') {
+        doLast {
+            configurations.findAll { it.canBeResolved }.each { c ->
+                try {
+                    c.resolve()
+                } catch (ignored) {
+                    // Some configurations are not meant to be resolved standalone; skip them.
+                }
+            }
+        }
+    }
+}
