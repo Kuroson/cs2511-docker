@@ -2,7 +2,7 @@ name: cs2511-gradle-9.2-ass1-cache CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'cs2511-gradle-9.2-ass1-cache/**'
       - '.github/workflows/cs2511-gradle-9.2-ass1-cache.yml'

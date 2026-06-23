@@ -2,7 +2,7 @@ name: cs2511-playwright-1.60.0-24.16.0 CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'cs2511-playwright-1.60.0-24.16.0/Dockerfile'
       - '.github/workflows/cs2511-playwright-1.60.0-24.16.0.yml'

@@ -2,7 +2,7 @@ name: cs2511-admin CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - "cs2511-admin/Dockerfile"
       - ".github/workflows/cs2511-admin.yml"

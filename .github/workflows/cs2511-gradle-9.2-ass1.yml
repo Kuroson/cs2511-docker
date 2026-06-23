@@ -2,7 +2,7 @@ name: cs2511-gradle-9.2-ass1 CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'cs2511-gradle-9.2-ass1/Dockerfile'
       - '.github/workflows/cs2511-gradle-9.2-ass1.yml'
