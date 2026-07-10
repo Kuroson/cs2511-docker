@@ -1,5 +1,12 @@
-ARG NODE_VERSION=24.12.0
-ARG ALPINE_VERSION=3.23.3
+# Gradle + Node image with a warmed Gradle dependency cache.
+#
+# This image is self-contained: the build context is this folder, and the seed
+# Gradle project lives in ./seed. The extra steps at the bottom resolve the
+# whole dependency graph so CI can build with --offline and never hit Maven
+# Central.
+
+ARG NODE_VERSION=24.18.0
+ARG ALPINE_VERSION=3.24.1
 
 FROM node:${NODE_VERSION}-alpine AS node
 
@@ -27,6 +34,18 @@ RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.
 RUN unzip /tmp/gradle-${GRADLE_VERSION}-bin.zip -d /opt
 RUN ln -s /opt/gradle-${GRADLE_VERSION} /opt/gradle
 RUN rm /tmp/gradle-${GRADLE_VERSION}-bin.zip
+
+# --- Warm the Gradle cache -------------------------------------------------
+# Copy the seed project (declares the union of every dependency, plugin and
+# tool version used across the COMP2511 26T2 repos) and resolve the entire
+# graph. This bakes the app deps + transitives, the plugin classpath
+# (jacocolog -> commons-lang3), the Checkstyle/JaCoCo tool jars and the Gradle
+# wrapper distribution into GRADLE_USER_HOME (/gradle).
+COPY seed /seed
+RUN cd /seed && \
+    ./gradlew --no-daemon --init-script seed-init.gradle resolveAllDependencies build && \
+    rm -rf /seed && \
+    chmod -R a+rwX "$GRADLE_USER_HOME"
 
 # Set the working directory
 WORKDIR /gradle

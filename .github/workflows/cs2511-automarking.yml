@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'cs2511-automarking/Dockerfile'
+      - 'cs2511-automarking/**'
       - '.github/workflows/cs2511-automarking.yml'
   workflow_dispatch:
 

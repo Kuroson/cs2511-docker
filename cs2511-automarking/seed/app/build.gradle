@@ -1,0 +1,107 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'checkstyle'
+    id 'jacoco'
+    id 'org.barfuin.gradle.jacocolog' version '3.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Union of all dependencies across the COMP2511 26T2 repos (sample-exam excluded).
+    implementation 'com.sparkjava:spark-core:2.9.4'
+    implementation 'com.google.code.gson:gson:2.13.2'
+    implementation 'org.json:json:20231013'
+    implementation 'org.reflections:reflections:0.10.2'
+    implementation 'org.slf4j:slf4j-simple:2.0.17'
+    implementation 'org.apache.commons:commons-csv:1.14.1'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testImplementation 'org.skyscreamer:jsonassert:1.2.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+    test {
+        java {
+            srcDir 'src/test/java'
+        }
+        resources {
+            srcDir 'src/test/resources'
+        }
+    }
+}
+
+processResources {
+    duplicatesStrategy = 'INCLUDE'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+checkstyle {
+    configFile = file("${project.rootDir}/config/checkstyle.xml")
+    toolVersion = '12.1.2'
+}
+
+task lint {
+    description("Lints the entire codebase, runs both checkstyleMain and checkstyleTest")
+    group("verification")
+    dependsOn('checkstyleMain', 'checkstyleTest')
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+    }
+    dependsOn test
+}
+
+jacocoTestCoverageVerification {
+    dependsOn jacocoTestReport
+}
+
+task coverage {
+    description("Generate coverage report and check if above threshold if it exists")
+    group("verification")
+    dependsOn('jacocoTestCoverageVerification')
+}
+
+task compile {
+    description("Checks if main code can compile with test code")
+    group = 'verification'
+    dependsOn 'testClasses'
+}
+
+jacocoLogTestCoverage {
+    logAlways = true
+    counters {
+        showClassCoverage = false
+        showMethodCoverage = false
+        showInstructionCoverage = false
+        showComplexityCoverage = false
+    }
+}
+
+application {
+    mainClass = 'unsw.App'
+}
