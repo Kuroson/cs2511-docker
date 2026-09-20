@@ -4,10 +4,10 @@ on:
   push:
     branches: [master]
     paths:
-      - "cs2511-gradle-8.8-ass1/Dockerfile"
+      - "archive/cs2511-gradle-8.8-ass1/Dockerfile"
       - ".github/workflows/cs2511-gradle-8.8-ass1.yml"
       - ".gitmodules"
-      - "cs2511-gradle-8.8-ass1/**"
+      - "archive/cs2511-gradle-8.8-ass1/**"
   workflow_dispatch:
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           push: true
-          context: ./cs2511-gradle-8.8-ass1
+          context: ./archive/cs2511-gradle-8.8-ass1
           tags: |
             cs2511docker/cs2511-gradle-8.8-ass1:latest
             cs2511docker/cs2511-gradle-8.8-ass1:${{ env.SHA_SHORT }}

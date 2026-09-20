@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
     paths:
-      - 'cs2511-playwright-1.57.0-24.12.0/Dockerfile'
+      - 'archive/cs2511-playwright-1.57.0-24.12.0/Dockerfile'
       - '.github/workflows/cs2511-playwright-1.57.0-24.12.0.yml'
   workflow_dispatch:
 
@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           push: true
-          context: ./cs2511-playwright-1.57.0-24.12.0
+          context: ./archive/cs2511-playwright-1.57.0-24.12.0
           tags: |
             cs2511docker/cs2511-playwright-1.57.0-24.12.0:latest
             cs2511docker/cs2511-playwright-1.57.0-24.12.0:${{ env.SHA_SHORT }}

@@ -1,16 +1,16 @@
-name: cs2511-gradle-9.2-ass2 CI
+name: cs2511-gradle-9.2-cache CI
 
 on:
   push:
     branches: [main]
     paths:
-      - 'cs2511-gradle-9.2-ass2/Dockerfile'
-      - '.github/workflows/cs2511-gradle-9.2-ass2.yml'
+      - 'cs2511-gradle-9.2-cache/**'
+      - '.github/workflows/cs2511-gradle-9.2-cache.yml'
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build and publish cs2511-gradle-9.2-ass2 Docker Image
+    name: Build and publish cs2511-gradle-9.2-cache Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,7 +27,9 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           push: true
-          context: ./cs2511-gradle-9.2-ass2
+          # Self-contained: the cache folder holds both the Dockerfile and the
+          # seed Gradle project it warms.
+          context: ./cs2511-gradle-9.2-cache
           tags: |
-            cs2511docker/cs2511-gradle-9.2-ass2:latest
-            cs2511docker/cs2511-gradle-9.2-ass2:${{ env.SHA_SHORT }}
+            cs2511docker/cs2511-gradle-9.2-cache:latest
+            cs2511docker/cs2511-gradle-9.2-cache:${{ env.SHA_SHORT }}

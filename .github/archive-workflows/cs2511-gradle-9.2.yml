@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'cs2511-gradle-9.2/Dockerfile'
+      - 'archive/cs2511-gradle-9.2/Dockerfile'
       - '.github/workflows/cs2511-gradle-9.2.yml'
   workflow_dispatch:
 
@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           push: true
-          context: ./cs2511-gradle-9.2
+          context: ./archive/cs2511-gradle-9.2
           tags: |
             cs2511docker/cs2511-gradle-9.2:latest
             cs2511docker/cs2511-gradle-9.2:${{ env.SHA_SHORT }}

@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "cs2511-admin/Dockerfile"
+      - "archive/cs2511-admin/Dockerfile"
       - ".github/workflows/cs2511-admin.yml"
   workflow_dispatch:
 
@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           push: true
-          context: ./cs2511-admin
+          context: ./archive/cs2511-admin
           tags: |
             cs2511docker/cs2511-admin:latest
             cs2511docker/cs2511-admin:${{ env.SHA_SHORT }}

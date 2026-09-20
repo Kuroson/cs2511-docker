@@ -1,16 +1,16 @@
-name: cs2511-playwright-1.60.0-24.16.0 CI
+name: cs2511-gradle-9.2-ass2 CI
 
 on:
   push:
     branches: [main]
     paths:
-      - 'archive/cs2511-playwright-1.60.0-24.16.0/Dockerfile'
-      - '.github/workflows/cs2511-playwright-1.60.0-24.16.0.yml'
+      - 'archive/cs2511-gradle-9.2-ass2/Dockerfile'
+      - '.github/workflows/cs2511-gradle-9.2-ass2.yml'
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build and publish cs2511-playwright-1.60.0-24.16.0 Docker Image
+    name: Build and publish cs2511-gradle-9.2-ass2 Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           push: true
-          context: ./archive/cs2511-playwright-1.60.0-24.16.0
+          context: ./archive/cs2511-gradle-9.2-ass2
           tags: |
-            cs2511docker/cs2511-playwright-1.60.0-24.16.0:latest
-            cs2511docker/cs2511-playwright-1.60.0-24.16.0:${{ env.SHA_SHORT }}
+            cs2511docker/cs2511-gradle-9.2-ass2:latest
+            cs2511docker/cs2511-gradle-9.2-ass2:${{ env.SHA_SHORT }}
