@@ -15,8 +15,8 @@ Currently built:
 | [`cs2511-gradle-9.2-cache`](./cs2511-gradle-9.2-cache) | `cs2511docker/cs2511-gradle-9.2-cache` | Gradle 9.2 + warmed cache for the `lab0*` repos |
 | [`cs2511-gradle-9.2-ass1-cache`](./cs2511-gradle-9.2-ass1-cache) | `cs2511docker/cs2511-gradle-9.2-ass1-cache` | Gradle 9.2 + assignment-i tests + warmed cache |
 | [`cs2511-gradle-9.2-ass2-cache`](./cs2511-gradle-9.2-ass2-cache) | `cs2511docker/cs2511-gradle-9.2-ass2-cache` | Gradle 9.2 + assignment-ii tests + warmed cache |
-| [`cs2511-automarking`](./cs2511-automarking) | `cs2511docker/cs2511-automarking` | Gradle 9.2 + Node 24.18 + warmed cache |
-| [`cs2511-playwright-1.64.1-26.12.0`](./cs2511-playwright-1.64.1-26.12.0) | `cs2511docker/cs2511-playwright-1.64.1-26.12.0` | Playwright 1.64.1 on Node 26.12 |
+| [`cs2511-automarking`](./cs2511-automarking) | `cs2511docker/cs2511-automarking` | Gradle 9.2 + Node 26.12 + warmed cache |
+| [`cs2511-playwright-1.64.1-26.12.1`](./cs2511-playwright-1.64.1-26.12.1) | `cs2511docker/cs2511-playwright-1.64.1-26.12.1` | Playwright 1.64.1 on Node 26.12.1 |
 
 ### Warmed Gradle caches
 

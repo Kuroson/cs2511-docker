@@ -5,7 +5,7 @@
 # whole dependency graph so CI can build with --offline and never hit Maven
 # Central.
 
-ARG NODE_VERSION=24.18.0
+ARG NODE_VERSION=26.12.1
 ARG ALPINE_VERSION=3.24.1
 
 FROM node:${NODE_VERSION}-alpine AS node
